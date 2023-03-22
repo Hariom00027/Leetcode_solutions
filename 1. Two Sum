@@ -1,0 +1,28 @@
+//The problem  is solved using Hash table.
+//Bruteforce method can also be aplied to solve the same.(But the time complexity will be O(n^2) in this case.)
+//The simple idea is to traverse through the array, subtract the array value on that index from the "target" and will search for the difference in the array.
+//If obtained we will simply return the index of both the elements.
+//If not obtained we will store the value of that index and its index in the Hash table.
+//move the pointer to next element.
+//Now for the next element we repeat the same steps and will also check the values stored in the Hash table for the difference in each case.
+//Below is the code for the same.
+..........................................................................................................................................................................
+                                                      DO NOT COPY PASTE TRY TO UNDERSTAND THE CODE!!!
+..........................................................................................................................................................................
+class Solution { 
+    public int[] twoSum(int[] nums, int target) {
+        int[] result =new int[2];
+        Map<Integer,Integer> map= new HashMap<Integer, Integer>();
+        for(int i=0; i< nums.length; i++){
+            if (map.containsKey(target - nums[i])) {
+                result[1]=i;
+                result[0]=map.get(target - nums[i]);
+                return result;
+            }
+            map.put(nums[i],i);
+
+        }
+        return result;
+        
+    }
+}
