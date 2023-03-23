@@ -1,0 +1,33 @@
+//A palindromic number (also known as a numeral palindrome or a numeric palindrome) is a number (such as 16461) that remains the same when its digits are reversed. In other words, it has reflectional symmetry across a vertical axis.
+//To check the same the easy way would be to reverse the whole integer and check if the original integer and the reversed integer are equal.
+//But the smarter way would be to half the integer and just compare the two halves in this way we will just have to iterate through the half of the integer.
+//Below is the code for the same.
+
+...........................................................................................................................................................................................................................................
+                                                          DO NOT COPY THE CODE !! TRY TO UNDERSTAND FIRST !!
+...........................................................................................................................................................................................................................................
+
+
+class Solution {
+    public boolean isPalindrome(int x) {
+        if (x ==0){
+            return true;
+        }
+        if (x<0 || x % 10 == 0) {
+            return false;
+        }
+        int reversed_integer =0;
+        while (x> reversed_integer ) {
+            int pop = x % 10;
+            x /= 10;
+            reversed_integer=(reversed_integer*10) + pop;
+
+        }
+        if(x==reversed_integer || x == reversed_integer/10){
+            return true;
+        }
+        else {
+        return false;
+        }
+    }
+}
