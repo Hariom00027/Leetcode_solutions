@@ -1,0 +1,37 @@
+//We will store the given number as a string.
+//Iterate from last element of the string to the first.
+//Initially we will keep the value corresponding to the last character and compare it to the character preceding it.
+//If the preciding character's value is smaller than the last character's value then subtract it.
+//Add the two in other case.
+//Repeat the same steps till you reach the start of the string.
+//We are using hashmap for assigning values for faster algorithm. 
+//Below is the code for the same.
+
+.......................................................................................................................................................................
+                                                             DO NOT JUST COPY THE CODE!!  TRY TO UNDERSTAND FIRST!!
+.......................................................................................................................................................................
+
+
+class Solution {
+    public int romanToInt(String s) {
+        Map<Character, Integer> map = new HashMap<>();
+        map.put('I',1);
+        map.put('V',5);
+        map.put('X',10);
+        map.put('L',50);
+        map.put('C',100);
+        map.put('D',500);
+        map.put('M',1000);
+
+        int result =map.get(s.charAt(s.length()-1));
+        for(int i=s.length()-2;i >=0; i--){
+            if(map.get(s.charAt(i))<map.get(s.charAt(i+1))){
+                result-=map.get(s.charAt(i));
+            }
+            else{
+                result+=map.get(s.charAt(i));  
+            }
+        }
+     return result;   
+    }
+}
